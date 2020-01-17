@@ -1,0 +1,27 @@
+<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div>
+    <!-- <label>name: 
+        <input [(ngModel)]="hero.name" placeholder="name">
+    </label> -->
+    <div class="mdc-text-field">
+        <input type="text" id="text-field-hero-name" class="mdc-text-field__input" [(ngModel)]="hero.name">
+        <label class="mdc-floating-label" for="text-field-hero-name"></label>
+        <div class="mdc-line-ripple"></div>
+    </div>
+</div>
+
+
+<ul class="mdc-list" >
+    <li class="mdc-list-item" *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="mdc-list-item__text">{{ hero.id }} {{hero.name}}</span>
+        </a>
+    </li>
+</ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- <button class="mdc-button mdc-button--raised">
+    <div class="mdc-button__ripple"></div>
+    <span class="mdc-button__label">Button</span>
+</button> -->
